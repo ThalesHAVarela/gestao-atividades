@@ -11,7 +11,7 @@ type Props = {
 
 function estadoInicial(task: Task | null): Omit<Task, "id"> {
   if (task) {
-    const { id, ...resto } = task; // tira o id, mantém o resto
+    const { id: _id, ...resto } = task; // tira o id, mantém o resto
     return resto;
   }
   return {

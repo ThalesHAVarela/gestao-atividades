@@ -36,7 +36,7 @@ export function KanbanBoard({ tasks, onMove, onEdit, onDelete }: Props) {
           <div key={coluna.status} className="coluna">
             <h2>{coluna.titulo} ({daColuna.length})</h2>
             {daColuna.map((task) => (
-              <div key={task.id} className={`card prio-${task.priority}`}>
+              <div key={task.id} className={`card prio-${task.priority.toLowerCase()}`}>
                 <strong>{task.title}</strong>
                 <p className="resp">{nomeDoResponsavel(task.assigneeId)}</p>
                 <p className={estaAtrasada(task) ? "prazo atrasado" : "prazo"}>

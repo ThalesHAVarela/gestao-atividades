@@ -31,3 +31,19 @@
   font-size: 14px; font-family: inherit; }
 .modal textarea { resize: vertical; min-height: 60px; }
 .modal-acoes { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+.dashboard { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px; }
+.kpis-numeros { display:grid; grid-template-rows:repeat(3,1fr); gap:12px; }
+.kpi { background:#fff; border-radius:8px; padding:16px; display:flex;
+       flex-direction:column; box-shadow:0 1px 2px rgba(0,0,0,.1); border-left:5px solid #ccc; }
+.kpi .numero { font-size:32px; font-weight:700; line-height:1; }
+.kpi .rotulo { font-size:13px; color:#5e6c84; margin-top:4px; }
+.kpi.alerta { border-left-color:#e5493a; }
+.kpi.atencao { border-left-color:#f2a900; }
+.kpi.ok { border-left-color:#57a55a; }
+.carga { background:#fff; border-radius:8px; padding:16px; box-shadow:0 1px 2px rgba(0,0,0,.1); }
+.carga h3 { font-size:15px; color:#5e6c84; margin-bottom:12px; }
+.barra-linha { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.barra-nome { width:70px; font-size:13px; }
+.barra-trilho { flex:1; background:#ebecf0; border-radius:4px; height:16px; overflow:hidden; }
+.barra-fill { background:#0052cc; height:100%; }
+.barra-valor { width:20px; text-align:right; font-size:13px; font-weight:600; }

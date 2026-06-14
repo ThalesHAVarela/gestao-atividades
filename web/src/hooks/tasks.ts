@@ -15,5 +15,19 @@ export function useTasks() {
     setTasks((prev) => prev.map((t) => (t.id === id ? { ...t, status } : t)));
   }
 
-  return { tasks, setTasks, moveTask };
+  function addTask(data: Omit<Task, "id">) {
+    const novaTarefa: Task = { ...data, id: crypto.randomUUID() };
+    setTasks((prev) => [...prev, novaTarefa]);
+  }
+
+  function updateTask(id: string, data: Omit<Task, "id">) {
+    setTasks((prev) => prev.map((t) => (t.id === id ? { ...data, id } : t)));
+  }
+
+  function deleteTask(id: string) {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
+  }
+
+  return { tasks, setTasks, moveTask, addTask, updateTask, deleteTask };
+
 }

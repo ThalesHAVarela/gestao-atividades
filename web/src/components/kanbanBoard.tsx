@@ -17,19 +17,17 @@ function estaAtrasada(task: Task): boolean {
   return task.dueDate < hoje;
 }
 
-function proximo(s: Status): Status {
-  return s === "A fazer" ? "Fazendo" : "Feito";
-}
-function anterior(s: Status): Status {
-  return s === "Feito" ? "Fazendo" : "A fazer";
-}
+function proximo(s: Status): Status { return s === "A fazer" ? "Fazendo" : "Feito"; }
+function anterior(s: Status): Status { return s === "Feito" ? "Fazendo" : "A fazer"; }
 
 type Props = {
   tasks: Task[];
   onMove: (id: string, status: Status) => void;
+  onEdit: (task: Task) => void;
+  onDelete: (id: string) => void;
 };
 
-export function KanbanBoard({ tasks, onMove }: Props) {
+export function KanbanBoard({ tasks, onMove, onEdit, onDelete }: Props) {
   return (
     <div className="board">
       {COLUNAS.map((coluna) => {
@@ -51,6 +49,8 @@ export function KanbanBoard({ tasks, onMove }: Props) {
                   {coluna.status !== "Feito" && (
                     <button onClick={() => onMove(task.id, proximo(coluna.status))}>→</button>
                   )}
+                  <button onClick={() => onEdit(task)}>✎</button>
+                  <button onClick={() => onDelete(task.id)}>🗑</button>
                 </div>
               </div>
             ))}
